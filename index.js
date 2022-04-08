@@ -15,13 +15,13 @@ app.get('/Helipaddy/:id', (req,res) => {
     res.status(200).json(Helipaddy)
 })
 
-//AJOUTER UN Helipaddy
+//AJOUTER UN HELIPADDY
 app.post('/Helipaddy', (req,res) => {
   Helipaddy.push(req.body)
   res.status(200).json(Helipaddy)
 })
 
-//SUPPRIMER UN Helipaddy
+//SUPPRIMER UN HELIPADDY
 app.delete('/Helipaddy/:id', (req,res) => {
   const id = parseInt(req.params.id)
   let Helipaddy = Helipaddy.find(Helipaddyr => Helipaddy.id === id)
@@ -29,7 +29,7 @@ app.delete('/Helipaddy/:id', (req,res) => {
   res.status(200).json(Helipaddy)
 })
 
-//AFFICHER UN Helipaddy 
+//AFFICHER UN HELIPADDY SELON SON TRIP
 app.get('/Helipaddy', (req,res) => {
   res.status(200).json(Helipaddy)
 })
