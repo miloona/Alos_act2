@@ -61,26 +61,26 @@ describe('POST /Helipaddy',  ()=>  {
   it('respond with 200 created',  (done) => {
     const data = {  
     
-    "email": "branch_duran@heli.com",
-    "username": "branch53",
-    "profile": {
-      "name": "Branch Duran",
-      "age": "53",
-      "country": "Andorra",
-      "picture": "http://placehold.it/32x32/picture/branch_duran/0",
-      "email": "branch_duran@heli.com",
-      "phone": "+119.97732",
-      "name_Helipaddy": "Allen ",
-      "expertise": "professional",
-      "Trip_price": "$70.17",
-      "number_of_trips": 42
+    email: "branch_duran@heli.com",
+    username: "branch53",
+    profile: {
+      name: "Branch Duran",
+      age: "53",
+      country: "Andorra",
+      picture: "http://placehold.it/32x32/picture/branch_duran/0",
+      email: "branch_duran@heli.com",
+      phone: "+119.97732",
+      name_Helipaddy: "Allen ",
+      expertise: "professional",
+      Trip_price: "$70.17",
+     "number_of_trips": 42
     },
-    "trip": {
-      "time_to_go": "2021-08-31T12:21:42.089Z",
-      "go_to": "Blackgum",
-      "flying_hours": 6,
-      "number_of_passengers": 5,
-      "Quality": "Good"
+    trip: {
+      time_to_go: "2021-08-31T12:21:42.089Z",
+      go_to: "Blackgum",
+      flying_hours: 6,
+      number_of_passengers: 5,
+      Quality: "Good"
     }
     }
           chai.request(app)
