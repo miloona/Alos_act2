@@ -94,7 +94,7 @@ describe('POST /Helipaddy',  ()=>  {
          response.body.should.have.property('username').eq("branch53");
            
          response.body.should.have.property('name').eq("Branch Duran");
-         response.body.should.have.property('age').eq("53");
+         response.body.should.have.property('age').eq(53);
          response.body.should.have.property('country').eq("Andorra");
          response.body.should.have.property('picture').eq("http://placehold.it/32x32/picture/branch_duran/0");
          response.body.should.have.property('email').eq("branch_duran@heli.com");
@@ -103,12 +103,12 @@ describe('POST /Helipaddy',  ()=>  {
          response.body.should.have.property('name_Helipaddy').eq("Allen");
          response.body.should.have.property('expertise').eq("professional");
          response.body.should.have.property('Trip_price').eq("$70.17");
-         response.body.should.have.property('number_of_trips').eq("42");
+         response.body.should.have.property('number_of_trips').eq(42);
            
          response.body.should.have.property('time_to_go').eq("2021-08-31T12:21:42.089Z");
          response.body.should.have.property('go_to').eq("Blackgum");
-         response.body.should.have.property('flying_hours').eq("6");
-         response.body.should.have.property('number_of_passengers').eq("5");
+         response.body.should.have.property('flying_hours').eq(6);
+         response.body.should.have.property('number_of_passengers').eq(5);
          response.body.should.have.property('Quality').eq("Good");
 
 
@@ -208,7 +208,7 @@ it('Deletes a particular Helipaddy',  (done)=>  {
          response.body.should.have.property('username').eq("branch53");
            
          response.body.should.have.property('name').eq("Branch Duran");
-         response.body.should.have.property('age').eq("53");
+         response.body.should.have.property('age').eq(53);
          response.body.should.have.property('country').eq("Andorra");
          response.body.should.have.property('picture').eq("http://placehold.it/32x32/picture/branch_duran/0");
          response.body.should.have.property('email').eq("branch_duran@heli.com");
@@ -217,12 +217,12 @@ it('Deletes a particular Helipaddy',  (done)=>  {
          response.body.should.have.property('name_Helipaddy').eq("Allen");
          response.body.should.have.property('expertise').eq("professional");
          response.body.should.have.property('Trip_price').eq("$70.17");
-         response.body.should.have.property('number_of_trips').eq("42");
+         response.body.should.have.property('number_of_trips').eq(42);
            
          response.body.should.have.property('time_to_go').eq("2021-08-31T12:21:42.089Z");
          response.body.should.have.property('go_to').eq("Blackgum");
-         response.body.should.have.property('flying_hours').eq("6");
-         response.body.should.have.property('number_of_passengers').eq("5");
+         response.body.should.have.property('flying_hours').eq(6);
+         response.body.should.have.property('number_of_passengers').eq(5);
          response.body.should.have.property('Quality').eq("Good");
         done();
     });  
