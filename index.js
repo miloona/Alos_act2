@@ -35,7 +35,7 @@ app.get('/Helipaddy', (req,res) => {
 })
 
 app.get('/Helipaddy/:id', (req,res) => {
-  const groupe_sanguin = parseInt(req.params.groupe_sanguin)
+  const trip = parseInt(req.params.trip)
   const Helipaddy = Helipaddy.find(Helipaddy => Helipaddy.id === id)
   res.status(200).json(Helipaddy) 
 })
