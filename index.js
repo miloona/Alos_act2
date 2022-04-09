@@ -27,13 +27,13 @@ app.post('/Helipaddy',
 
 body('email').isEmail().normalizeEmail(),
 body('username').not().trim().escape(),   
-body('name').isString()
+body('name').isString(),
 body('age').isInt(),
 body('country').isString(),
 body('picture').isInt(),
 body('email').isEmail().normalizeEmail(),
 body('phone').isMobilePhone(), 
-body('name_Helipaddy').isString()
+body('name_Helipaddy').isString(),
 body('expertise').isIn(['Beginner', 'professional']),
 body('Trip_price').isCurrency(),
 body('number_of_trips').isInt(),
