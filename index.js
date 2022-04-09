@@ -1,5 +1,5 @@
 var express = require('express')
-const annonces_ventes = require('./DB_v1.json')
+const annonces_ventes = require('./db.json')
 
 //morgan 
 var logger = require("morgan");
@@ -22,87 +22,92 @@ const { body, validationResult } = require('express-validator');
 ///express-validator
 //middlwares
 
-app.post('/annonces_ventes', 
+app.post('/Helipaddy', 
 ///Sanitization
 
-body('titre').not().isEmpty().trim().escape(),
-body('date_de_creation').isDate(),
-body('categories').isIn(['villa', 'local', 'bungalow', 'local', 'studio', 'terrain','appartement']),
-body('pays').isString(),
-body('ville').isString(),
-body('rue').isString(),
-body('superficie').isString(),
-body('prix').isCurrency(),
-body('pieces').isInt(),
-body('etage').isInt(),
-body('specifications').isString(),
-body('user').not().trim().escape(),
-body('telephone').isMobilePhone(),
 body('email').isEmail().normalizeEmail(),
-
+body('username').not().trim().escape(),   
+body('name').isString()
+body('age').isInt(),
+body('country').isString(),
+body('picture').isInt(),
+body('email').isEmail().normalizeEmail(),
+body('phone').isMobilePhone(), 
+body('name_Helipaddy').isString()
+body('expertise').isIn(['Beginner', 'professional']),
+body('Trip_price').isCurrency(),
+body('number_of_trips').isInt(),
+body('time_to_go').isDate(),
+body('go_to').isString(),    
+body('flying_hours').isInt(),  
+body('number_of_passengers').isInt(),  
+body('Quality').isIn(['Good', 'Normal','Bad']),
+    
 
 (req, res, next)=>  {
     let content = req.body;
     const errors = validationResult(req);
-//Ça pour le test (api test) la condition Il y aura que le (id )et le (titre) Obligatoirement Exister
-    if (!content.id && !content.titre) { 
-        return res.status(400).send("annonces_ventes not created");
+// test api test la condition Il y aura que le id et le name Obligatoirement Exister
+    if (!content.id && !content.name) { 
+        return res.status(400).send("Helipaddy not created");
 
     }
     ////fin
 
     
-    ////
+    
     if (!errors.isEmpty()) {
         return res.status(400).json({
             success: false,
             errors: errors.array()
         });
     } 
-    const annonces_vente = {
-        id: annonces_ventes.length + 1,
-        titre: req.body.titre,
-        date_de_creation: req.body.date_de_creation,
-        categories: req.body.categories,
-        pays: req.body.pays,
-        ville: req.body.ville,
+    const Helipaddy = {
+        id: Helipaddy.length + 1,
+        email: req.body.email,
+        username: req.body.username,
+        name: req.body.name,
+        age: req.body.age,
+        country: req.body.country,
 
-        rue: req.body.rue,
-        superficie: req.body.superficie,
-        prix: req.body.prix,
-        pieces: req.body.pieces,
-        etage: req.body.etage,
-        specifications: req.body.specifications,
-        user: req.body.user,
-        telephone: req.body.telephone,
-        email: req.body.email
-
+       picture: req.body.picture,
+        email: req.body.email,
+        phone: req.body.phone,
+        name_Helipaddy: req.body.name_Helipaddy,
+        expertise: req.body.expertise,
+        Trip_price: req.body.Trip_price,
+        number_of_trips: req.body.number_of_trips,
+        time_to_go: req.body.time_to_go,
+        go_to: req.body.go_to,
+        flying_hours: req.body.flying_hoursl,
+        number_of_passengers: req.body.number_of_passengers,
+        Quality: req.body.Quality
 
     }
     
-    annonces_ventes.push(annonces_vente);
-    res.status(200).json(annonces_vente)
+    Helipaddy.push(Helipaddy);
+    res.status(200).json(Helipaddy)
     
 });
 /// GET 
-app.get('/annonces_ventes', (req,res,next) => {
-    res.status(200).json(annonces_ventes)
+app.get('/Helipaddy', (req,res,next) => {
+    res.status(200).json(Helipaddy)
 })
 
 /// GET  BY ID
-app.get('/annonces_ventes/:id', (req,res,next) => {
+app.get('/Helipaddy/:id', (req,res,next) => {
 
 
   
         const id = parseInt(req.params.id)
 
-        const annonces_vente = annonces_ventes.find(annonces_vente => annonces_vente.id === id)
-        if(annonces_vente){
+        const Helipaddy = Helipaddy.find(Helipaddy => Helipaddy.id === id)
+        if(Helipaddy){
 
-        res.status(200).json(annonces_vente)
+        res.status(200).json(Helipaddy)
     }
     else {
-        return res.status(404).json("annonces_ventes_not_found");
+        return res.status(404).json("Helipaddy_not_found");
 
     }
   
@@ -110,34 +115,31 @@ app.get('/annonces_ventes/:id', (req,res,next) => {
 
 
 ///PUT
-app.put('/annonces_ventes/:id',(req, response) => {
+app.put('/Helipaddy/:id',(req, response) => {
     const taskId = req.params.id;
-    const task = annonces_ventes.find(task => task.id === parseInt(taskId));
-    if(!task) return response.status(404).send("The annonces ventes with the provided ID does not exist.");
+    const task = aHelipaddy.find(task => task.id === parseInt(taskId));
+    if(!task) return response.status(404).send("The Helipaddy with the provided ID does not exist.");
 
     const { error } = utils.validateTask(req.body);
     if(!error) {
-        task.titre =req.body.titre,
-        task.date_de_creation =req.body.date_de_creation,
+        task.email: req.body.email,
+        task.username: req.body.username,
+        task.name: req.body.name,
+        task.age: req.body.age,
+        task.country: req.body.country,
 
-   task.categories =req.body.categories,
-   task.pays =req.body.pays,   
-   task.ville =req.body.ville,
-
-      task.rue =req.body.rue,
-
-   task.superficie =req.body.superficie,
-   task.prix =req.body.prix,
-   task.pieces =req.body.pieces,
-   task.etage =req.body.etage,
-   task.specifications =req.body.specifications,
-
-   
-   task.user =req.body.user,
-   task.telephone =req.body.telephone,
-   task.email =req.body.email
-
-
+       task.picture: req.body.picture,
+        task.email: req.body.email,
+        task.phone: req.body.phone,
+        task.name_Helipaddy: req.body.name_Helipaddy,
+        task.expertise: req.body.expertise,
+        task.Trip_price: req.body.Trip_price,
+        task.number_of_trips: req.body.number_of_trips,
+        task.time_to_go: req.body.time_to_go,
+        task.go_to: req.body.go_to,
+        task.flying_hours: req.body.flying_hoursl,
+        task.number_of_passengers: req.body.number_of_passengers,
+        task.Quality: req.body.Quality
      return response.status(200).send(task);
     }
     else {
@@ -151,16 +153,16 @@ app.put('/annonces_ventes/:id',(req, response) => {
   
   });
 ///delete
-app.delete('/annonces_ventes/:id', (req,res,next) => {
+app.delete('/Helipaddy/:id', (req,res,next) => {
     const id = parseInt(req.params.id)
-    let annonces_vente = annonces_ventes.find(annonces_vente => annonces_vente.id === id)
-    annonces_ventes.splice(annonces_ventes.indexOf(annonces_vente),1)
-    if(annonces_vente){
+    let Helipaddy = Helipaddy.find(Helipaddy => Helipaddy.id === id)
+    Helipaddy.splice(Helipaddy.indexOf(Helipaddy),1)
+    if(Helipaddy){
 
-        res.status(200).json(annonces_vente)
+        res.status(200).json(Helipaddy)
     }
     else {
-        return res.status(400).json("annonces_ventes_not_found");
+        return res.status(400).json("Helipaddy");
 
     }
 })
