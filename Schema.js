@@ -3,25 +3,24 @@ const Joi = require('joi')
 
 
 const Schema = {
-    titre:  Joi.string().min(3).max(50),
-    date_de_creation: Joi.string(),
-    categories: Joi.string(),
-    pays: Joi.string().min(3),
-    ville: Joi.string().min(3),
-
-    rue: Joi.string().min(3),
-    superficie: Joi.string().min(3),
-    prix: Joi.string(),
-    pieces:   Joi.number().positive().integer(),
-    etage: Joi.number().positive().integer(),
-    specifications:  Joi.string(),
-
-    
-    user: Joi.string().min(3),
-    telephone: Joi.string().min(3),
-    email: Joi.string().email().min(3)
-
-
+    email: Joi.string().email().min(7),
+    username:  Joi.string().min(7).max(50),
+    name:  Joi.string().min(7).max(50),
+    age:   Joi.number().positive().integer().min(30),
+    country: Joi.string().min(5),
+    picture:Joi.string(),
+    email: Joi.string().email().min(7),
+    phone: Joi.string().min(3),
+    name_Helipaddy:  Joi.string().min(7).max(50),
+    expertise: Joi.string(),
+    Trip_price:   Joi.number().positive().integer(),
+    number_of_trips:   Joi.number().positive().integer(),
+    time_to_go: Joi.string(),
+    go_to: Joi.string(),
+    flying_hours: Joi.number().positive().integer().max(30),
+    number_of_passengers: Joi.number().positive().integer().max(12),
+    Quality: Joi.string(),
+  
   
 };
 
