@@ -116,31 +116,31 @@ app.get('/Helipaddy/:id', (req,res,next) => {
 
 ///PUT
 app.put('/Helipaddy/:id',(req, response) => {
-    const taskId = req.params.id;
-    const task = aHelipaddy.find(task => task.id === parseInt(taskId));
-    if(!task) return response.status(404).send("The Helipaddy with the provided ID does not exist.");
+    const tskId = req.params.id;
+    const tsk = aHelipaddy.find(tsk => tsk.id === parseInt(tskId));
+    if(!tsk) return response.status(404).send("The Helipaddy with the provided ID does not exist.");
 
     const { error } = utils.validateTask(req.body);
     if(!error) {
-        task.email: req.body.email,
-        task.username: req.body.username,
-        task.name: req.body.name,
-        task.age: req.body.age,
-        task.country: req.body.country,
+        tsk.email: req.body.email,
+        tsk.username: req.body.username,
+        tsk.name: req.body.name,
+        tsk.age: req.body.age,
+        tsk.country: req.body.country,
 
-       task.picture: req.body.picture,
-        task.email: req.body.email,
-        task.phone: req.body.phone,
-        task.name_Helipaddy: req.body.name_Helipaddy,
-        task.expertise: req.body.expertise,
-        task.Trip_price: req.body.Trip_price,
-        task.number_of_trips: req.body.number_of_trips,
-        task.time_to_go: req.body.time_to_go,
-        task.go_to: req.body.go_to,
-        task.flying_hours: req.body.flying_hoursl,
-        task.number_of_passengers: req.body.number_of_passengers,
-        task.Quality: req.body.Quality
-     return response.status(200).send(task);
+        tsk.picture: req.body.picture,
+        tsk.email: req.body.email,
+        tsk.phone: req.body.phone,
+        tsk.name_Helipaddy: req.body.name_Helipaddy,
+        tsk.expertise: req.body.expertise,
+        tsk.Trip_price: req.body.Trip_price,
+        tsk.number_of_trips: req.body.number_of_trips,
+        tsk.time_to_go: req.body.time_to_go,
+        tsk.go_to: req.body.go_to,
+        tsk.flying_hours: req.body.flying_hoursl,
+        tsk.number_of_passengers: req.body.number_of_passengers,
+        tsk.Quality: req.body.Quality
+     return response.status(200).send(tsk);
     }
     else {
 
