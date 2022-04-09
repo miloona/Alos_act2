@@ -228,7 +228,7 @@ it('Deletes a particular Helipaddy',  (done)=>  {
     });  
     });
     it("It should NOT PUT an existing Helipaddy ", (done) => {
-      const Id = 12;
+      const Id = "62389c70029036d29800ab12";
       const data = {
         email: "branch_duran@heli.com",
     username: "branch53",
